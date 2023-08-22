@@ -1,30 +1,3 @@
-Skip to content
-qdunggs95
-/
-AWS_Project_3
-
-Type / to search
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Commit
-Create config.yml
- main
-@qdunggs95
-qdunggs95 committed 8 hours ago 
-1 parent d2f6802
-commit a4bd335
-Showing 1 changed file with 26 additions and 0 deletions.
- 26 changes: 26 additions & 0 deletions26  
-.circleci/config.yml
-@@ -0,0 +1,26 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
@@ -51,25 +24,3 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-0 comments on commit a4bd335
-@qdunggs95
- 
-Leave a comment
-No file chosen
-Attach files by dragging & dropping, selecting or pasting them.
- You’re receiving notifications because you’re watching this repository.
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Create config.yml · qdunggs95/AWS_Project_3@a4bd335
