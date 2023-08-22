@@ -7,6 +7,6 @@ jobs:
 
 workflows:
   default:
-  job:
+  jobs:
     - build-frontend
     - build-backkend
