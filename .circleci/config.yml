@@ -1,13 +1,11 @@
 version: 2.1
 
 jobs:
-  build-frontend:...
+  build-frontend:
 
-  build-backend:...
-
+  build-backend:
 workflows:
   default:
     jobs:
       - build-frontend
-      - build-backkend
-      
+      - build-backend
