@@ -30,7 +30,6 @@ commands:
           command: |
             curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
             sudo apt install -y nodejs
-
             sudo npm install --global n
             sudo n 13.8.0
             
@@ -45,11 +44,11 @@ jobs:
       - run:
           name: Build front-end
           command: |
-            cd ./frontend
+            cd frontend
             npm i
             npm run build
       - save_cache:
-          paths: [./frontend/node_modules]
+          paths: [frontend/node_modules]
           key: frontend-build
 
   build-backend:
@@ -62,11 +61,11 @@ jobs:
       - run:
           name: Back-end build
           command: |
-            cd ./backend
+            cd backend
             npm i
             npm run build
       - save_cache:
-          paths: [./backend/node_modules]
+          paths: [backend/node_modules]
           key: backend-build
 
   
