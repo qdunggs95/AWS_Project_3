@@ -1,24 +1,38 @@
 version: 2.1
 
 commands:
-  revert-migrations:
-    description: Revert the last migration if successfully run in the current workflow.
-    parameters:
-      # Add parameter here     
+    install_awscli:
+    description: Install AWS CLI v2
     steps:
       - run:
-          name: Revert migrations
-          # Add when this will run
+          name: Install AWS CLI v2
           command: |
-            # Curl command here to see if there was a successful migration associated with the workflow id, store result in SUCCESS variable
-            SUCCESS = 1
-            if(( $SUCCESS==1 )); 
-            then
-              cd ~/project/backend
-              npm install
-            #  Add revert code here. You can find this in the Getting Started section.
-              exit 1
-            fi
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+
+  install_ansible:
+    description: Install Ansible
+    steps:
+      - run:
+          name: Install Ansible
+          command: |
+            sudo apt update
+            sudo apt install software-properties-common -y
+            sudo add-apt-repository --yes --update ppa:ansible/ansible
+            sudo apt install ansible -y
+            
+  install_nodejs:
+    description: Install Node.js 13.8.0
+    steps:
+      - run:
+          name: Install Node.js 13.8.0
+          command: |
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+            sudo apt install -y nodejs
+
+            sudo npm install --global n
+            sudo n 13.8.0
             
 jobs:
   build-frontend:
@@ -31,12 +45,11 @@ jobs:
       - run:
           name: Build front-end
           command: |
-            cd frontend
-            npm install
-            pm run build
-            exit 1
+            cd ./frontend
+            npm i
+            npm run build
       - save_cache:
-          paths: [frontend/node_modules]
+          paths: [./frontend/node_modules]
           key: frontend-build
 
   build-backend:
@@ -49,12 +62,11 @@ jobs:
       - run:
           name: Back-end build
           command: |
-            cd backend
-            npm install
-            pm run build
-             exit 1
+            cd ./backend
+            npm i
+            npm run build
       - save_cache:
-          paths: [backend/node_modules]
+          paths: [./backend/node_modules]
           key: backend-build
 
   
