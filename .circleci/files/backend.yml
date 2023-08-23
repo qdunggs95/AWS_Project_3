@@ -27,7 +27,9 @@ Resources:
     Properties:
       InstanceType: t2.micro
       SecurityGroupIds:
-        - Ref: InstanceSecurityGroup
+        - Ref: 
+      KeyName: dungnq21Project3
+      ImageId: ami-0012aca3c2ed64d0f
       Tags:
         - Key: dungnq21Project3
           Value: !Sub backend-${ID}
