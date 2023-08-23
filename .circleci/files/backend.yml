@@ -27,9 +27,9 @@ EC2Instance:
     Properties:
       InstanceType: t2.micro
       SecurityGroupIds:
-        - Ref: default
+        - Ref: InstanceSecurityGroup
       KeyName: dungnq21Project3
       ImageId: ami-0012aca3c2ed64d0f
       Tags:
-        - Key: dungnq21Project3
+        - Key: Name
           Value: !Sub backend-${ID}
