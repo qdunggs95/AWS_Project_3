@@ -238,6 +238,30 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
+
+  configure-infrastructure:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - install_awscli
+      - install_ansible
+      - add_ssh_keys:
+          fingerprints: [d9:ba:30:e7:a4:6e:c3:b9:3f:e3:74:b9:8e:23:7b:5d]
+      - attach_workspace:
+          at: ./workspace
+      - run:
+          name: Configure server
+          command: |
+            pwd
+            cd .circleci/ansible
+            ls -al
+            ansible-playbook -i inventory.txt configure-server.yml
+          no_output_timeout: 30m
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project/backend
   
 workflows:
   default:
@@ -257,3 +281,5 @@ workflows:
           filters:
             branches:
               only: [main]
+      - configure-infrastructure:
+          requires: [deploy-infrastructure]
