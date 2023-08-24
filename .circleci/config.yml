@@ -261,7 +261,7 @@ jobs:
             pwd
             cd .circleci/ansible
             ls -al
-            ansible-playbook -k inventory.txt configure-server.yml
+            ansible-playbook -i .circleci/ansible/inventory.txt .circleci/ansible/configure-server.yml
           no_output_timeout: 30m
       - persist_to_workspace:
           root: ~/
