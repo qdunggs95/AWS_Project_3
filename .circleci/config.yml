@@ -258,9 +258,9 @@ jobs:
       - run:
           name: Configure server
           command: |
-            pwd
-            cd .circleci/ansible
-            ls -al
+            echo -e "NODE_ENV=development\nENVIRONMENT: development\nTYPEORM_CONNECTION=${TYPEORM_CONNECTION}\nTYPEORM_MIGRATIONS_DIR=${TYPEORM_MIGRATIONS_DIR}\nTYPEORM_ENTITIES=${TYPEORM_ENTITIES}\nTYPEORM_MIGRATIONS=${TYPEORM_MIGRATIONS}\nTYPEORM_HOST=${TYPEORM_HOST}\nTYPEORM_PORT=${TYPEORM_PORT}\nTYPEORM_USERNAME=${TYPEORM_USERNAME}\nTYPEORM_PASSWORD=${TYPEORM_PASSWORD}\nTYPEORM_DATABASE=${TYPEORM_DATABASE}" >> backend/.env
+            cat backend/.env
+            cat .circleci/ansible/inventory.txt
             ansible-playbook -i inventory.txt configure-server.yml
           no_output_timeout: 30m
       - persist_to_workspace:
