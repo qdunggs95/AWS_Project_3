@@ -28,7 +28,7 @@ Resources:
       InstanceType: t2.micro
       SecurityGroupIds:
         - Ref: InstanceSecurityGroup
-      KeyName: dungnq21ED25519
+      KeyName: dungnq21Project3
       ImageId: ami-0453898e98046c639
       Tags:
         - Key: dungnq21Project3
