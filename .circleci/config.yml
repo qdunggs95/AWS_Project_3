@@ -214,7 +214,7 @@ jobs:
           name: Test InitialStack
           command: |
             aws cloudformation deploy \
-              --template-file .circleci/files/backend.yml \
+              --template-file .circleci/files/cloudfront.yml \
               --stack-name InitialStack \
               --parameter-overrides WorkflowID=udapeople-kk1j287dhjplmz438
   
