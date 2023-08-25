@@ -29,7 +29,7 @@ Resources:
       SecurityGroupIds:
         - Ref: InstanceSecurityGroup
       KeyName: dungnq21Project3
-      ImageId: ami-0453898e98046c639
+      ImageId: ami-053b0d53c279acc90
       Tags:
         - Key: dungnq21Project3
           Value: !Sub backend-${ID}
