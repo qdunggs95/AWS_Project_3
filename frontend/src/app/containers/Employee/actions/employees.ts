@@ -95,16 +95,11 @@ export namespace EmployeeActions {
   export const addEmployee = (payload: EmployeeModel) => {
     return async (dispatch: Dispatch) => {
       dispatch(addEmployeeRequest());
-      try {
         const employeeService = new EmployeesService();
         const response = await employeeService.createEmployee(payload);
         dispatch(addEmployeeSuccess(response));
         dispatch(push('/employees'));
         showSuccessNotification(text.CHANGES_SAVED);
-      } catch (error) {
-        console.error(error);
-        showErrorNotification(text.GENERIC_ERROR);
-        dispatch(addEmployeeFailure(error));
       }
     };
   };
