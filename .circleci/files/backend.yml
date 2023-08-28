@@ -33,3 +33,8 @@ Resources:
       Tags:
         - Key: dungnq21Project3
           Value: !Sub backend-${ID}
+
+  EC2InstanceEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref EC2Instance
