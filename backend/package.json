@@ -1,6 +1,8 @@
 {
   "name": "glee2",
   "version": "1.0.0",
+  "standard-version": "^9.0.0", 
+  "supertest": "^3.4.2",
   "description": "This is just a test.",
   "author": "",
   "license": "MIT",
